@@ -35,9 +35,9 @@ MAIL="$USER@student.42.fr"
 export MAIL
 
 # Definition des repertoires de travail et de correction
-MODULE=web
+MODULE=unix
 export MODULE
-PROJECT=rush1
+PROJECT=malloc
 export PROJECT
 WP=/nfs/zfs-student-3/users/2013/mdelage/Rendu/perso/$MODULE/$PROJECT
 export WP
@@ -52,6 +52,7 @@ source ~/.ls_colors
 # Definition du prompt
 precmd ()
 {
+    NORMAL="%{$reset_color%}"
     if [ $? -eq 0 ]
     then
         COLOR3="%{$fg[green]%}"
@@ -60,8 +61,6 @@ precmd ()
     fi
     PROMPT="%n@%m:%~
 %{$COLOR3%}> %{$NORMAL%}"
-
-    NORMAL="%{$reset_color%}"
     ISGIT=$(git status 2> /dev/null)
     if [ -n "$ISGIT" ]
     then
