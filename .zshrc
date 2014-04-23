@@ -37,7 +37,7 @@ export MAIL
 # Definition des repertoires de travail et de correction
 MODULE=unix
 export MODULE
-PROJECT=malloc
+PROJECT=nmobjdump
 export PROJECT
 WP=/nfs/zfs-student-3/users/2013/mdelage/Rendu/perso/$MODULE/$PROJECT
 export WP
@@ -137,6 +137,7 @@ alias em="emacs"
 alias files_s="defaults write com.apple.finder AppleShowAllFiles TRUE && killall Finder"
 alias files_h="defaults write com.apple.finder AppleShowAllFiles FALSE && killall Finder"
 alias find_text='~/scripts/find_text'
+alias ft_printf='cp -r ~/ft_printf ft_printf; rm -rf ft_printf/.git'
 alias grand="open ~/GrandPerspective.app"
 alias gccf='gcc -Wall -Wextra -Werror'
 alias gccl="gcc -I ~/libft/includes -L ~/libft -lft"
