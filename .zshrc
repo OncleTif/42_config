@@ -12,15 +12,19 @@ setopt share_history
 # Correction de la touche Delete
 bindkey "\e[3~"   delete-char
 
-# Autocompletion de type menu
+# Autocompletion moins bete
 autoload -U compinit && compinit
+
+# Autocompletion de type menu
 zstyle ":completion:*" menu select
 
 # Couleur prompt
 autoload -U colors && colors
 
-# Definition des couleurs
-source ~/.ls_colors
+# Definition des couleurs de ls
+if [ -f "~/.ls_colors" ]; then
+	source ~/.ls_colors
+fi
 
 # Definition des variables
 USER=`/usr/bin/whoami`
@@ -32,39 +36,39 @@ export MAIL
 
 # Definition du prompt
 ## mdelage
-PROMPT="%n@%m:%~
+PROMPT="%n@%B%m%b:%~
 > "
 
 precmd ()
 {
-    ISGIT=$(git status 2> /dev/null)
-    if [ -n "$ISGIT" ]
-    then
-	BRANCH=$(git branch | cut -d " " -f 2 | tr -d "\n")
-	STATUS=$(echo "$ISGIT" | grep "modified")
-	if [ -n "$STATUS" ]
+	ISGIT=$(git status 2> /dev/null)
+	if [ -n "$ISGIT" ]
 	then
-	    COLOR="%{$fg[red]%}"
-	else
-	    REMOTE_EXIST=$(git branch -a | grep "remotes/origin/$BRANCH")
-	    if [ -n "$REMOTE_EXIST" ]
-	    then
-		REMOTE=$(git diff origin/$BRANCH $BRANCH)
-		if [ -n "$REMOTE" ]
+		BRANCH=$(git branch | cut -d " " -f 2 | tr -d "\n")
+		STATUS=$(echo "$ISGIT" | grep "modified:\|renamed:\|new file:\|deleted:")
+		if [ -n "$STATUS" ]
 		then
-		    COLOR="%{$fg[yellow]%}"
+			COLOR="%{$fg[red]%}"
 		else
-		    COLOR="%{$fg[green]%}"
-		fi
-	    else
-		COLOR="%{$fg[yellow]%}"
-	    fi
-	fi			
-	NORMAL="%{$reset_color%}"
-	RPROMPT="%{$COLOR%}($BRANCH)%{$NORMAL%}"
-    else
-	RPROMPT=""
-    fi
+			REMOTE_EXIST=$(git branch -a | grep "remotes/origin/$BRANCH")
+			if [ -n "$REMOTE_EXIST" ]
+			then
+				REMOTE=$(git diff origin/$BRANCH $BRANCH)
+				if [ -n "$REMOTE" ]
+				then
+					COLOR="%{$fg[yellow]%}"
+				else
+					COLOR="%{$fg[green]%}"
+				fi
+			else
+				COLOR="%{$fg[yellow]%}"
+			fi
+		fi			
+		NORMAL="%{$reset_color%}"
+		RPROMPT="%{$COLOR%}($BRANCH)%{$NORMAL%}"
+	else
+		RPROMPT=""
+	fi
 }
 
 ## dlancar
@@ -82,6 +86,7 @@ alias gco="git checkout"
 alias gpl="git pull"
 alias gps="git push"
 alias gm="git merge"
+alias gu="git add -u"
 
 # Definition des alias
 alias c="clear"
@@ -103,16 +108,21 @@ alias v="vim"
 # Coloration du man
 man()
 {
-    env \
-	LESS_TERMCAP_mb=$(printf "\e[1;31m") \
-	LESS_TERMCAP_md=$(printf "\e[1;31m") \
-	LESS_TERMCAP_me=$(printf "\e[0m") \
-	LESS_TERMCAP_se=$(printf "\e[0m") \
-	LESS_TERMCAP_so=$(printf "\e[1;44;33m") \
-	LESS_TERMCAP_ue=$(printf "\e[0m") \
-	LESS_TERMCAP_us=$(printf "\e[1;32m") \
-	man "$@"
+	env \
+		LESS_TERMCAP_mb=$(printf "\e[1;31m") \
+		LESS_TERMCAP_md=$(printf "\e[1;31m") \
+		LESS_TERMCAP_me=$(printf "\e[0m") \
+		LESS_TERMCAP_se=$(printf "\e[0m") \
+		LESS_TERMCAP_so=$(printf "\e[1;44;33m") \
+		LESS_TERMCAP_ue=$(printf "\e[0m") \
+		LESS_TERMCAP_us=$(printf "\e[1;32m") \
+		man "$@"
 }
 
-# Experimental
-TERM=xterm-256color
+# Norminette automatique
+norme()
+{
+	CFILES=`find . -iname "*.c"`
+	HFILES=`find . -iname "*.h"`
+	norminette $CFILES $HFILES
+}
