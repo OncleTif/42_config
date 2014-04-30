@@ -41,6 +41,7 @@ PROMPT="%n@%B%m%b:%~
 
 precmd ()
 {
+	NORMAL="%{$reset_color%}"
 	ISGIT=$(git status 2> /dev/null)
 	if [ -n "$ISGIT" ]
 	then
@@ -64,7 +65,6 @@ precmd ()
 				COLOR="%{$fg[yellow]%}"
 			fi
 		fi			
-		NORMAL="%{$reset_color%}"
 		RPROMPT="%{$COLOR%}($BRANCH)%{$NORMAL%}"
 	else
 		RPROMPT=""
@@ -89,6 +89,7 @@ alias gm="git merge"
 alias gu="git add -u"
 
 # Definition des alias
+alias auteur="echo $USER > auteur"
 alias c="clear"
 alias cc="clang -Wall -Wextra -Werror"
 alias em="emacs"
