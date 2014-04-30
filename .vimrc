@@ -130,7 +130,7 @@ else
   set autoindent                 " always set autoindent (ai) on
 endif " has("autocmd")
 
-set mouse=                       " no mouse
+set mouse=a                       " mouse
 
 " Don't use Ex mode, use Q for formatting
 map Q gq
@@ -181,6 +181,3 @@ endfunction " }
 
 " Suppression of space at end of line
 autocmd BufWrite * silent! %s/[\r \t]\+$//
-
-" Get the mouse
-set mouse=a

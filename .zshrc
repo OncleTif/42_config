@@ -37,7 +37,7 @@ export MAIL
 # Definition des repertoires de travail et de correction
 MODULE=unix
 export MODULE
-PROJECT=nmobjdump
+PROJECT=ftscript
 export PROJECT
 WP=/nfs/zfs-student-3/users/2013/mdelage/Rendu/perso/$MODULE/$PROJECT
 export WP
