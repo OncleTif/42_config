@@ -140,20 +140,20 @@ map Q gq
 inoremap <C-U> <C-G>u<C-U>
 
 " inactivate arrows, home and end keys in insert mode
-"inoremap <Up> <nop>
-"inoremap <Down> <nop>
-"inoremap <Left> <nop>
-"inoremap <Right> <nop>
-"inoremap <home> <nop>
-"inoremap <End> <nop>
-"inoremap <Up> <nop>
+" inoremap <Up> <nop>
+" inoremap <Down> <nop>
+" inoremap <Left> <nop>
+" inoremap <Right> <nop>
+" inoremap <home> <nop>
+" inoremap <End> <nop>
+" inoremap <Up> <nop>
 
 set backspace=indent,eol,start   " allow backspacing over everything in insert mode
 set formatoptions=cqrt           " comments newline when already in a comment
 
 " scroll more than one line up/down at a time
-nnoremap <C-e> 3<C-e>
-nnoremap <C-y> 3<C-y>
+" nnoremap <C-e> 3<C-e>
+" nnoremap <C-y> 3<C-y>
 
 " Convenient command to see the difference between the current buffer and the
 " file it was loaded from, thus the changes you made.
@@ -181,3 +181,23 @@ endfunction " }
 
 " Suppression of space at end of line
 autocmd BufWrite * silent! %s/[\r \t]\+$//
+
+" Open man in vim
+runtime! ftplugin/man.vim
+
+" Moving to beginning or end of line
+nnoremap <C-a> <Home>
+nnoremap <C-e> <End>
+inoremap <C-a> <Home>
+inoremap <C-e> <End>
+vnoremap <C-a> <Home>
+vnoremap <C-e> <End>
+
+" Syntastic
+let g:syntastic_check_on_open=1
+let g:syntastic_enable_signs=1
+let g:syntastic_error_symbol='★'
+let g:syntastic_style_error_symbol='>'
+let g:syntastic_warning_symbol='⚠'
+let g:syntastic_style_warning_symbol='>'
+let g:syntastic_c_include_dirs=[ '.', './includes', '../includes', './libft/includes' , '../libft/includes' ]

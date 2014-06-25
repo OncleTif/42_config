@@ -37,7 +37,7 @@ export MAIL
 # Definition des repertoires de travail et de correction
 MODULE=unix
 export MODULE
-PROJECT=ftscript
+PROJECT=zappy
 export PROJECT
 WP=/nfs/zfs-student-3/users/2013/mdelage/Rendu/perso/$MODULE/$PROJECT
 export WP
@@ -59,7 +59,7 @@ precmd ()
     else
         COLOR3="%{$fg[red]%}"
     fi
-    PROMPT="%n@%m:%~
+    PROMPT="%n@%B%m%b:%~
 %{$COLOR3%}> %{$NORMAL%}"
     ISGIT=$(git status 2> /dev/null)
     if [ -n "$ISGIT" ]
@@ -133,6 +133,7 @@ alias gu="git add -u"
 
 # Definition des alias
 alias auteur="echo 'mdelage' > auteur"
+alias authf="~/scripts/authorised_functions.sh"
 alias em="emacs"
 alias files_s="defaults write com.apple.finder AppleShowAllFiles TRUE && killall Finder"
 alias files_h="defaults write com.apple.finder AppleShowAllFiles FALSE && killall Finder"
@@ -150,6 +151,7 @@ alias modsh='vim ~/dotfiles/.zshrc'
 alias next='source ~/scripts/nextprev next'
 alias prev='source ~/scripts/nextprev prev'
 alias proto='~/scripts/proto'
+alias purgevim="rf -f ~/.vim/tmp/*.swp ~/.vim/tmp/.*.swp"
 alias rl='source ~/.zshrc'
 alias sd='emacs'
 alias GG="cowsay \"Bien Joue les gars ! Bon courage et bonne continuation.\" "
@@ -170,9 +172,7 @@ man()
 # Norminette inteligente
 norme()
 {
-    dot_c=`find . -iname "*.c"`
-    dot_h=`find . -iname "*.h"`
-    norminette $dot_c $dot_h
+    norminette **/*.c **/*.h
 }
 
 html()
