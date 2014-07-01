@@ -31,7 +31,9 @@ MAIL="$USER@student.42.fr"
 export MAIL
 
 # Definition des couleurs
-source ~/.ls_colors
+if [ -f ~/.ls_colors ]; then
+    source ~/.ls_colors
+fi
 
 # Definition du prompt
 precmd ()
