@@ -38,6 +38,7 @@ export MAIL
 if [ -f ~/.ls_colors ]; then
     source ~/.ls_colors
 fi
+
 NORMAL="%{$reset_color%}"
 
 # Definition du prompt
