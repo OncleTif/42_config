@@ -50,6 +50,8 @@ precmd ()
     else
         COLOR3="%{$fg[red]%}"
     fi
+    PROMPT="%n@%B%m%b:%~
+%{$COLOR3%}> %{$NORMAL%}"
     ISGIT=$(git status 2> /dev/null)
     if [ -n "$ISGIT" ]
     then
@@ -78,8 +80,6 @@ precmd ()
         RPROMPT=""
     fi
     RPROMPT="$RPROMPT"
-    PROMPT="%B%{$fg[green]%}%n@%m%{$NORMAL%}%B:%{$fg[blue]%}%~%{$NORMAL%}
-%B%{$COLOR3%}> %{$NORMAL%}%b"
 }
 
 # Definition des alias raccourcis
@@ -102,10 +102,12 @@ alias gu="git add -u"
 
 # Definition des alias
 alias auteur="echo 'mdelage' > auteur"
+alias authf="~/scripts/authorised_functions.sh"
 alias em="emacs"
 alias files_s="defaults write com.apple.finder AppleShowAllFiles TRUE && killall Finder"
 alias files_h="defaults write com.apple.finder AppleShowAllFiles FALSE && killall Finder"
 alias find_text='~/scripts/find_text'
+alias ft_printf='cp -r ~/ft_printf ft_printf; rm -rf ft_printf/.git'
 alias grand="open ~/GrandPerspective.app"
 alias gccf='gcc -Wall -Wextra -Werror'
 alias gccl="gcc -I ~/libft/includes -L ~/libft -lft"
@@ -118,6 +120,7 @@ alias modsh='vim ~/dotfiles/.zshrc'
 alias next='source ~/scripts/nextprev next'
 alias prev='source ~/scripts/nextprev prev'
 alias proto='~/scripts/proto'
+alias purgevim="rf -f ~/.vim/tmp/*.swp ~/.vim/tmp/.*.swp"
 alias rl='source ~/.zshrc'
 alias sd='emacs'
 alias GG="cowsay \"Bien Joue les gars ! Bon courage et bonne continuation.\" "
