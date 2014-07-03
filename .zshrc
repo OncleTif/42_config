@@ -50,8 +50,6 @@ precmd ()
     else
         COLOR3="%{$fg[red]%}"
     fi
-    PROMPT="%n@%B%m%b:%~
-%{$COLOR3%}> %{$NORMAL%}"
     ISGIT=$(git status 2> /dev/null)
     if [ -n "$ISGIT" ]
     then
@@ -80,6 +78,8 @@ precmd ()
         RPROMPT=""
     fi
     RPROMPT="$RPROMPT"
+    PROMPT="%B%{$fg[green]%}%n@%m%{$NORMAL%}%B:%{$fg[blue]%}%~%{$NORMAL%}
+%B%{$COLOR3%}> %{$NORMAL%}%b"
 }
 
 # Definition des alias raccourcis
