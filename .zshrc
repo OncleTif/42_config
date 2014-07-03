@@ -1,5 +1,5 @@
 # Definition du PATH
-PATH=$HOME/scripts:$HOME/usr/bin:$HOME/usr/local/bin:$HOME/.brew/bin:$HOME/mamp/mysql/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/usr/texbin
+PATH=$HOME/scripts:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/usr/texbin
 export PATH
 
 # Configuration de l'historique
@@ -8,6 +8,10 @@ SAVEHIST=5000
 HISTSIZE=5000
 setopt inc_append_history
 # setopt share_history
+
+# default editor
+EDITOR=vim
+export EDITOR
 
 # Reglage du terminal
 TERM=xterm-256color
@@ -31,7 +35,10 @@ MAIL="$USER@student.42.fr"
 export MAIL
 
 # Definition des couleurs
-source ~/.ls_colors
+if [ -f ~/.ls_colors ]; then
+    source ~/.ls_colors
+fi
+NORMAL="%{$reset_color%}"
 
 # Definition du prompt
 precmd ()
@@ -42,10 +49,6 @@ precmd ()
     else
         COLOR3="%{$fg[red]%}"
     fi
-    PROMPT="%n@%m:%~
-%{$COLOR3%}> %{$NORMAL%}"
-
-    NORMAL="%{$reset_color%}"
     ISGIT=$(git status 2> /dev/null)
     if [ -n "$ISGIT" ]
     then
@@ -69,14 +72,14 @@ precmd ()
                 COLOR="%{$fg[green]%}"
             fi
         fi
-        RPROMPT="%{$COLOR%}($BRANCH)%{$NORMAL%} "
+        RPROMPT="%{$COLOR%}($BRANCH)%{$NORMAL%}"
     else
         RPROMPT=""
     fi
-   RPROMPT="$RPROMPT"
+    RPROMPT="$RPROMPT"
+    PROMPT="%B%{$fg[green]%}%n@%m%{$NORMAL%}%B:%{$fg[blue]%}%~%{$NORMAL%}
+%B%{$COLOR3%}> %{$NORMAL%}%b"
 }
-
-MAMP=$HOME/mamp/apps
 
 # Definition des alias raccourcis
 alias cdc='cd $WP'
@@ -117,6 +120,7 @@ alias proto='~/scripts/proto'
 alias rl='source ~/.zshrc'
 alias sd='emacs'
 alias GG="cowsay \"Bien Joue les gars ! Bon courage et bonne continuation.\" "
+
 # Couleurs pour le man
 man()
 {
@@ -129,14 +133,6 @@ man()
         LESS_TERMCAP_ue=$(printf "\e[0m") \
         LESS_TERMCAP_us=$(printf "\e[1;32m") \
         man "$@"
-}
-
-# Norminette inteligente
-norme()
-{
-    dot_c=`find . -iname "*.c"`
-    dot_h=`find . -iname "*.h"`
-    norminette $dot_c $dot_h
 }
 
 html()
