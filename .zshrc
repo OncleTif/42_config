@@ -10,7 +10,7 @@ setopt inc_append_history
 # setopt share_history
 
 # default editor
-EDITOR=vim
+EDITOR=/usr/bin/vim
 export EDITOR
 
 # Reglage du terminal
@@ -113,6 +113,7 @@ alias gccf='gcc -Wall -Wextra -Werror'
 alias gccl="gcc -I ~/libft/includes -L ~/libft -lft"
 alias gcclf="gcc -Wall -Wextra -Werror -I ~/libft/includes -L ~/libft -lft"
 alias l='ls -l'
+alias ll='ls -l'
 alias la='ls -lA'
 alias lah='ls -lAh'
 alias lh='ls -lh'
