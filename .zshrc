@@ -83,12 +83,7 @@ precmd ()
 }
 
 # Definition des alias raccourcis
-alias cdc='cd $WP'
-alias cdl='cd $LIB'
-alias cdm='cd $MAMP'
-alias cds='cd ~/scripts/'
 alias cdt='cd ~/test/'
-alias cdx='cd $COR'
 
 # Definition des alias de git
 alias ga="git add"
@@ -101,32 +96,16 @@ alias gm="git merge"
 alias gu="git add -u"
 
 # Definition des alias
-alias auteur="echo 'mdelage' > auteur"
-alias authf="~/scripts/authorised_functions.sh"
-alias em="emacs"
-alias files_s="defaults write com.apple.finder AppleShowAllFiles TRUE && killall Finder"
-alias files_h="defaults write com.apple.finder AppleShowAllFiles FALSE && killall Finder"
-alias find_text='~/scripts/find_text'
-alias ft_printf='cp -r ~/ft_printf ft_printf; rm -rf ft_printf/.git'
-alias grand="open ~/GrandPerspective.app"
 alias gccf='gcc -Wall -Wextra -Werror'
-alias gccl="gcc -I ~/libft/includes -L ~/libft -lft"
-alias gcclf="gcc -Wall -Wextra -Werror -I ~/libft/includes -L ~/libft -lft"
-alias l='ls -l'
+alias l='ls'
 alias ll='ls -l'
 alias la='ls -lA'
 alias lah='ls -lAh'
 alias lh='ls -lh'
-alias libft='cp -r ~/libft libft; rm -rf libft/.git'
 alias ls='ls --color'
-alias modsh='vim ~/dotfiles/.zshrc'
-alias next='source ~/scripts/nextprev next'
-alias prev='source ~/scripts/nextprev prev'
-alias proto='~/scripts/proto'
+alias modsh='vim ~/.dotfiles/.zshrc'
 alias purgevim="rf -f ~/.vim/tmp/*.swp ~/.vim/tmp/.*.swp"
 alias rl='source ~/.zshrc'
-alias sd='emacs'
-alias GG="cowsay \"Bien Joue les gars ! Bon courage et bonne continuation.\" "
 
 # Couleurs pour le man
 man()
@@ -140,33 +119,4 @@ man()
         LESS_TERMCAP_ue=$(printf "\e[0m") \
         LESS_TERMCAP_us=$(printf "\e[1;32m") \
         man "$@"
-}
-
-html()
-{
-    echo "<html>" > $1
-    echo "\t<head>" >> $1
-    echo "\t</head>" >> $1
-    echo "\t<body>" >> $1
-    echo "\t</body>" >> $1
-    echo "</html>" >> $1
-}
-
-sp()
-{
-    echo "<?php" >> $1
-    echo "" >> $1
-    echo "?>" >> $1
-}
-
-sc()
-{
-    if [ "$1" = "sh" ]
-    then
-        echo "#!/bin/sh" >> $2
-    elif [ "$1" = "php" ]
-    then
-        echo "#!/usr/bin/php" >> $2
-        sp $2
-    fi
 }
