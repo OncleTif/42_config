@@ -120,3 +120,8 @@ man()
         LESS_TERMCAP_us=$(printf "\e[1;32m") \
         man "$@"
 }
+
+ssh_tmux()
+{
+    ssh -t "$1" tmux a || ssh -t "$1" tmux;
+}
