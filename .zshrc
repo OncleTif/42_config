@@ -96,6 +96,7 @@ alias gm="git merge"
 alias gu="git add -u"
 
 # Definition des alias
+alias clean='find . -name "*~" -execdir rm {} \;'
 alias gccf='gcc -Wall -Wextra -Werror'
 alias l='ls'
 alias ll='ls -l'
