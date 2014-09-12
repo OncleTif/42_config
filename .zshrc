@@ -112,6 +112,7 @@ alias ls='ls --color'
 alias modsh='vim ~/.dotfiles/.zshrc'
 alias purgevim="rf -f ~/.vim/tmp/*.swp ~/.vim/tmp/.*.swp"
 alias rl='source ~/.zshrc'
+alias tmux="TERM=screen_256color-bce"
 
 # Couleurs pour le man
 man()
