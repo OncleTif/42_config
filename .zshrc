@@ -9,12 +9,17 @@ HISTSIZE=5000
 setopt inc_append_history
 setopt share_history
 
+# Tmux command history
+bindkey '^R' history-incremental-search-backward
+bindkey -e
+export LC_ALL=en_US.UTF-8
+
 # default editor
 EDITOR=/usr/bin/vim
 export EDITOR
 
 # Reglage du terminal
-TERM=xterm-256color
+#TERM=xterm-256color
 
 # Correction de la touche Delete
 bindkey "\e[3~"   delete-char
@@ -62,7 +67,7 @@ precmd ()
             REMOTE_EXIST=$(git branch -a | grep remotes/origin/$BRANCH)
             if [ -n "$REMOTE_EXIST" ]
             then
-                REMOTE=$(git diff origin/$BRANCH $BRANCH)
+                REMOTE=$(git diff origin/$BRANCH)
                 if [ -n "$REMOTE" ]
                 then
                     COLOR="%{$fg[yellow]%}"
