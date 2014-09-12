@@ -19,7 +19,9 @@ EDITOR=/usr/bin/vim
 export EDITOR
 
 # Reglage du terminal
-#TERM=xterm-256color
+if [ "$SHLVL" -eq 2 ]; then
+    TERM=xterm-256color
+fi
 
 # Correction de la touche Delete
 bindkey "\e[3~"   delete-char
@@ -112,7 +114,6 @@ alias ls='ls --color'
 alias modsh='vim ~/.dotfiles/.zshrc'
 alias purgevim="rf -f ~/.vim/tmp/*.swp ~/.vim/tmp/.*.swp"
 alias rl='source ~/.zshrc'
-alias tmuxn="TERM=screen_256color-bce tmux"
 
 # Couleurs pour le man
 man()
