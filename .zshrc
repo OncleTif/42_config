@@ -19,7 +19,7 @@ EDITOR=/usr/bin/vim
 export EDITOR
 
 # Reglage du terminal
-if [ "$SHLVL" -eq 2 ]; then
+if [ "$SHLVL" -eq 1 ]; then
     TERM=xterm-256color
 fi
 
