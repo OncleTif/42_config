@@ -130,7 +130,8 @@ else
   set autoindent                 " always set autoindent (ai) on
 endif " has("autocmd")
 
-set mouse=a                       " mouse
+" use mouse
+" set mouse=a                       " mouse
 
 " Don't use Ex mode, use Q for formatting
 map Q gq
@@ -184,6 +185,9 @@ autocmd BufWrite * silent! %s/[\r \t]\+$//
 
 " Open man in vim
 runtime! ftplugin/man.vim
+
+" rebind increase
+nnoremap <C-c> <C-a>
 
 " Moving to beginning or end of line
 nnoremap <C-a> <Home>
