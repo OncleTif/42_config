@@ -117,8 +117,8 @@ if has("autocmd")
   autocmd FileType vim setlocal ts=2 sts=2 sw=2 noet ai " Vim
   autocmd FileType text setlocal ts=2 sts=2 sw=2 noet ai " Text
   autocmd FileType markdown setlocal ts=4 sts=4 sw=4 noet ai " Markdown
-  autocmd FileType html setlocal ts=4 sts=4 sw=4 noet ai " (x)HTML
-  autocmd FileType php,java setlocal ts=4 sts=4 sw=4 noet ai nocindent " PHP & Java
+  autocmd FileType html setlocal ts=2 sts=2 sw=2 noet ai " (x)HTML
+  autocmd FileType php,java setlocal ts=2 sts=2 sw=2 noet ai nocindent " PHP & Java
   autocmd FileType javascript setlocal ts=2 sts=2 sw=2 noet ai nocindent " JavaScript
   autocmd BufNewFile,BufRead *.h set ft=c
   autocmd BufNewFile,BufRead *.json set ft=javascript
@@ -130,7 +130,8 @@ else
   set autoindent                 " always set autoindent (ai) on
 endif " has("autocmd")
 
-set mouse=a                       " mouse
+" use mouse
+" set mouse=a                       " mouse
 
 " Don't use Ex mode, use Q for formatting
 map Q gq
@@ -184,6 +185,9 @@ autocmd BufWrite * silent! %s/[\r \t]\+$//
 
 " Open man in vim
 runtime! ftplugin/man.vim
+
+" rebind increase
+nnoremap <C-c> <C-a>
 
 " Moving to beginning or end of line
 nnoremap <C-a> <Home>
