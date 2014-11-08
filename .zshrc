@@ -13,8 +13,27 @@ HISTSIZE=5000
 setopt inc_append_history
 # setopt share_history
 
+# Tmux command history
+bindkey '^R' history-incremental-search-backward
+bindkey -e
+export LC_ALL=en_US.UTF-8
+
+# previous/next word with alt + arrow
+bindkey '^[[1;3C' forward-word
+bindkey '^[[1;3D' backward-word
+
+# previous/next word with ctrl + arrow
+bindkey '^[[1;5C' forward-word
+bindkey '^[[1;5D' backward-word
+
+# default editor
+EDITOR=/usr/bin/vim
+export EDITOR
+
 # Reglage du terminal
-TERM=xterm-256color
+if [ "$SHLVL" -eq 1 ]; then
+    TERM=xterm-256color
+fi
 
 # Correction de la touche Delete
 bindkey "\e[3~"   delete-char
@@ -34,6 +53,11 @@ export GROUP
 MAIL="$USER@student.42.fr"
 export MAIL
 
+# Definition des couleurs
+if [ -f ~/.ls_colors ]; then
+    source ~/.ls_colors
+fi
+
 # Definition des repertoires de travail et de correction
 MODULE=unix
 export MODULE
@@ -46,13 +70,11 @@ export COR
 LIB=/nfs/zfs-student-3/users/2013/mdelage/libft/
 export LIB
 
-# Definition des couleurs
-source ~/.ls_colors
+NORMAL="%{$reset_color%}"
 
 # Definition du prompt
 precmd ()
 {
-    NORMAL="%{$reset_color%}"
     if [ $? -eq 0 ]
     then
         COLOR3="%{$fg[green]%}"
@@ -134,10 +156,9 @@ alias gu="git add -u"
 # Definition des alias
 alias auteur="echo 'mdelage' > auteur"
 alias authf="~/scripts/authorised_functions.sh"
-alias em="emacs"
+alias clean="find . -name \"*~\" -execdir rm {};"
 alias files_s="defaults write com.apple.finder AppleShowAllFiles TRUE && killall Finder"
 alias files_h="defaults write com.apple.finder AppleShowAllFiles FALSE && killall Finder"
-alias find_text='~/scripts/find_text'
 alias ft_printf='cp -r ~/ft_printf ft_printf; rm -rf ft_printf/.git'
 alias grand="open ~/GrandPerspective.app"
 alias gccf='gcc -Wall -Wextra -Werror'
@@ -154,8 +175,8 @@ alias prev='source ~/scripts/nextprev prev'
 alias proto='~/scripts/proto'
 alias purgevim="rf -f ~/.vim/tmp/*.swp ~/.vim/tmp/.*.swp"
 alias rl='source ~/.zshrc'
-alias sd='emacs'
 alias GG="cowsay \"Bien Joue les gars ! Bon courage et bonne continuation.\" "
+
 # Couleurs pour le man
 man()
 {
