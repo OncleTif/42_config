@@ -11,7 +11,7 @@ HISTFILE=~/.zshrc_history
 SAVEHIST=5000
 HISTSIZE=5000
 setopt inc_append_history
-# setopt share_history
+setopt share_history
 
 # Tmux command history
 bindkey '^R' history-incremental-search-backward
