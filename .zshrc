@@ -98,7 +98,11 @@ precmd ()
 }
 
 # Load global aliases
-source ~/.aliases
+if [ -f ~/.aliases ]; then
+    source ~/.aliases
+fi
+
+alias rl="source ~/.zshrc"
 
 # Couleurs pour le man
 man()
