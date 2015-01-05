@@ -133,49 +133,10 @@ precmd ()
     RPROMPT="$RPROMPT%{$COLOR2%}$MODULE:$PROJECT%{$NORMAL%}"
 }
 
-MAMP=$HOME/mamp/apps
-
-# Definition des alias raccourcis
-alias cdc='cd $WP'
-alias cdl='cd $LIB'
-alias cdm='cd $MAMP'
-alias cds='cd ~/scripts/'
-alias cdt='cd ~/test/'
-alias cdx='cd $COR'
-
-# Definition des alias de git
-alias ga="git add"
-alias gb="git branch"
-alias gcm="git commit -m"
-alias gco="git checkout"
-alias gpl="git pull"
-alias gps="git push"
-alias gm="git merge"
-alias gu="git add -u"
-
-# Definition des alias
-alias auteur="echo 'mdelage' > auteur"
-alias authf="~/scripts/authorised_functions.sh"
-alias clean="find . -name \"*~\" -execdir rm {};"
-alias files_s="defaults write com.apple.finder AppleShowAllFiles TRUE && killall Finder"
-alias files_h="defaults write com.apple.finder AppleShowAllFiles FALSE && killall Finder"
-alias ft_printf='cp -r ~/ft_printf ft_printf; rm -rf ft_printf/.git'
-alias grand="open ~/GrandPerspective.app"
-alias gccf='gcc -Wall -Wextra -Werror'
-alias gccl="gcc -I ~/libft/includes -L ~/libft -lft"
-alias gcclf="gcc -Wall -Wextra -Werror -I ~/libft/includes -L ~/libft -lft"
-alias l='ls'
-alias ll='ls -l'
-alias la='ls -lA'
-alias libft='cp -r ~/libft libft; rm -rf libft/.git'
-alias ls='ls -G'
-alias modsh='vim ~/dotfiles/.zshrc'
-alias next='source ~/scripts/nextprev next'
-alias prev='source ~/scripts/nextprev prev'
-alias proto='~/scripts/proto'
-alias purgevim="rf -f ~/.vim/tmp/*.swp ~/.vim/tmp/.*.swp"
-alias rl='source ~/.zshrc'
-alias GG="cowsay \"Bien Joue les gars ! Bon courage et bonne continuation.\" "
+# Load global aliases
+if [ -f ~/.aliases ]; then
+    source ~/.aliases
+fi
 
 # Couleurs pour le man
 man()
