@@ -1,16 +1,21 @@
 " .vimrc
-" ruler with line number
-set number
 
 set nocompatible                 " Vim is better than Vi
 set encoding=utf-8               " utf8 or gtfo
 
-" Visual settings
-set t_Co=256                     " force vim to use 256 colors
-set background=dark
-
 let mapleader = ' '        " leader key used by some plugins
 "let g:mapleader = ' '     " gvim leader key used by some plugins
+
+filetype plugin off
+
+" Pathogen plugin management
+call pathogen#infect()
+" call pathogen#runtime_append_all_bundles()
+"call pathogen#helptags()        " Generate doc for all plugins
+
+filetype plugin indent on        " activate filetype detection,
+
+runtime! bundle/ccimpl/ftplugin/ccimpl.vim
 
 " auto-reload .vimrc
 augroup reload_vimrc " {
@@ -18,14 +23,15 @@ augroup reload_vimrc " {
   autocmd BufWritePost $MYVIMRC source $MYVIMRC
 augroup END " }
 
-" Pathogen plugin management
-call pathogen#infect()
-"call pathogen#helptags()        " Generate doc for all plugins
+" ruler with line number
+set number
+
+" Visual settings
+set t_Co=256                     " force vim to use 256 colors
+set background=dark
 
 " theme
 colorscheme kalahari
-
-filetype plugin indent on        " activate filetype detection,
 
 " status line
 set laststatus=2                 " always display the status line

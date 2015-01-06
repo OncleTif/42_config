@@ -1,11 +1,11 @@
 #!/bin/bash
 # Definition des alias raccourcis
-alias cdc='cd $WP'
+alias cdc='cd ~/Rendu/perso'
 alias cdl='cd $LIB'
 alias cdm='cd $MAMP'
 alias cds='cd ~/scripts/'
 alias cdt='cd ~/test/'
-alias cdx='cd $COR'
+alias cdx='cd ~/Rendu/correction'
 
 # Definition des alias de git
 alias ga="git add"
@@ -32,7 +32,7 @@ alias lah="ls -lAh"
 alias lh="ls -lh"
 alias ls="ls -G"
 alias modsh="vim ~/dotfiles/.zshrc"
+alias next="source nextprev next"
 alias purgevim="rf -f ~/.vim/tmp/*.swp ~/.vim/tmp/.*.swp"
+alias prev="source nextprev prev"
 alias rl="source ~/.zshrc"
-
-
