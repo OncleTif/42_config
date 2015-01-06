@@ -6,6 +6,7 @@ alias cdm='cd $MAMP'
 alias cds='cd ~/scripts/'
 alias cdt='cd ~/test/'
 alias cdx='cd ~/Rendu/correction'
+alias goinfre='cd /nfs/sgoinfre/goinfre/'
 
 # Definition des alias de git
 alias ga="git add"
