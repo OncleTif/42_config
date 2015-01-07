@@ -216,10 +216,16 @@ let g:syntastic_c_include_dirs=[ '.', './includes', '../includes', './libft/incl
 " c++ gates
 function! s:insert_gates()
   let gatename = substitute(toupper(expand("%:t")), "\\.", "_", "g")
+	let cName = substitute(expand("%:t"), ".hpp", "", "")
   execute "normal! i#ifndef " . gatename
   execute "normal! o# define " . gatename
 	execute	"normal! o"
-	execute	"normal! o"
+	execute	"normal! oclass " . cName
+	execute	"normal! o{"
+	execute	"normal! opublic:"
+	execute "normal! o" . cName . "( void );"
+	execute "normal! o~" . cName . "( void );"
+	execute	"normal! o};"
 	execute	"normal! o"
   execute "normal! Go#endif /* " . gatename . " */"
   normal! kk
