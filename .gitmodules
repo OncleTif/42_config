@@ -25,6 +25,3 @@
 [submodule ".vim/bundle/surround"]
 	path = .vim/bundle/surround
 	url = https://github.com/tpope/vim-surround.git
-[submodule ".vim/bundle/protodef"]
-	path = .vim/bundle/protodef
-	url = https://github.com/vim-scripts/ProtoDef.git
