@@ -10,12 +10,13 @@ filetype plugin off
 
 " Pathogen plugin management
 call pathogen#infect()
-" call pathogen#runtime_append_all_bundles()
-"call pathogen#helptags()        " Generate doc for all plugins
+call pathogen#helptags()        " Generate doc for all plugins
 
 filetype plugin indent on        " activate filetype detection,
 
+" stupid way of loading ftplugins
 runtime! bundle/ccimpl/ftplugin/ccimpl.vim
+runtime! python_match/ftplugin/python_match.vim
 
 " auto-reload .vimrc
 augroup reload_vimrc " {
@@ -211,3 +212,16 @@ let g:syntastic_style_error_symbol='>'
 let g:syntastic_warning_symbol='⚠'
 let g:syntastic_style_warning_symbol='>'
 let g:syntastic_c_include_dirs=[ '.', './includes', '../includes', './libft/includes' , '../libft/includes' ]
+
+" c++ gates
+function! s:insert_gates()
+  let gatename = substitute(toupper(expand("%:t")), "\\.", "_", "g")
+  execute "normal! i#ifndef " . gatename
+  execute "normal! o# define " . gatename
+	execute	"normal! o"
+	execute	"normal! o"
+	execute	"normal! o"
+  execute "normal! Go#endif /* " . gatename . " */"
+  normal! kk
+endfunction
+autocmd BufNewFile *.{h,hpp} call <SID>insert_gates()
