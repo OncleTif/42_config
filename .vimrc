@@ -227,7 +227,7 @@ function! s:insert_gates()
 	execute "normal! o" . cName . "(int const n);"
 	execute "normal! o" . cName . "(" . cName." const & src);"
 	execute "normal! o~" . cName . "( void );"
-	execute "normal! o" . cName . " &	operator=(" . cName . "const & rhs);"
+	execute "normal! o" . cName . " &	operator=(" . cName . " const & rhs);"
 	execute	"normal! o"
 	execute	"normal! oprivate:"
 	execute	"normal! o};"
