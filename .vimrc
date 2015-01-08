@@ -193,6 +193,10 @@ autocmd BufWrite * silent! %s/[\r \t]\+$//
 " Open man in vim
 runtime! ftplugin/man.vim
 
+" split screen below and right instead of vim natural
+set splitbelow
+set splitright
+
 " rebind increase
 nnoremap <C-c> <C-a>
 
