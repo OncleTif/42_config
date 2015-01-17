@@ -18,6 +18,10 @@ bindkey '^R' history-incremental-search-backward
 bindkey -e
 export LC_ALL=en_US.UTF-8
 
+# search in history based on what is type
+bindkey '\e[A' history-beginning-search-backward
+bindkey '\e[B' history-beginning-search-forward
+
 # previous/next word with alt + arrow
 bindkey '^[[1;3C' forward-word
 bindkey '^[[1;3D' backward-word
@@ -83,7 +87,7 @@ precmd ()
             REMOTE_EXIST=$(git branch -a | grep remotes/origin/$BRANCH)
             if [ -n "$REMOTE_EXIST" ]
             then
-                REMOTE=$(git diff origin/$BRANCH $BRANCH)
+                REMOTE=$(git diff origin/$BRANCH)
                 if [ -n "$REMOTE" ]
                 then
                     COLOR="%{$fg[yellow]%}"
