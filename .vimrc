@@ -288,10 +288,19 @@ inoremap <c-u> <esc>viwUi<esc>`>
 " inoremap { {}<left>
 
 " Some shortcut with leader {{{
-nnoremap <leader>w :w<cr>
+nnoremap <leader>w :wa<cr>
 nnoremap <leader>a :wqa<cr>
 nnoremap <leader>! :qa!<cr>
 nnoremap <leader>ev :vs $MYVIMRC<cr>
 nnoremap <leader><leader> :!
 " }}}
 
+" Syntastic {{{
+let g:syntastic_check_on_open=1
+let g:syntastic_enable_signs=1
+let g:syntastic_error_symbol='★'
+let g:syntastic_style_error_symbol='>'
+let g:syntastic_warning_symbol='⚠'
+let g:syntastic_style_warning_symbol='>'
+let g:syntastic_c_include_dirs=[ '.', './includes', '../includes', './libft/includes' , '../libft/includes' ]
+" }}}
