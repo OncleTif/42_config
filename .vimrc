@@ -292,6 +292,7 @@ nnoremap <leader>w :wa<cr>
 nnoremap <leader>a :wqa<cr>
 nnoremap <leader>! :qa!<cr>
 nnoremap <leader>ev :vs $MYVIMRC<cr>
+nnoremap <leader><tab> gt
 nnoremap <leader><leader> :!
 " }}}
 
