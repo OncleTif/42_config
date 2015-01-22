@@ -282,7 +282,7 @@ vnoremap <C-e> <End>
 " }}}
 
 " Some shortcut for insert mode
-inoremap <C-Space> <C-n>
+inoremap <Nul> <C-n>
 inoremap <c-u> <esc>viwUi<esc>`>
 " inoremap ( ()<left>
 " inoremap [ []<left>
