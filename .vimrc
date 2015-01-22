@@ -282,10 +282,15 @@ vnoremap <C-e> <End>
 " }}}
 
 " Some shortcut for insert mode
+inoremap <C-Space> <C-n>
 inoremap <c-u> <esc>viwUi<esc>`>
 " inoremap ( ()<left>
 " inoremap [ []<left>
 " inoremap { {}<left>
+
+" NerdTree
+nnoremap <C-n> :NERDTreeToggle<CR>
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 
 " Some shortcut with leader {{{
 nnoremap <leader>w :wa<cr>
