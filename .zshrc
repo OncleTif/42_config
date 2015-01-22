@@ -14,6 +14,10 @@ bindkey '^R' history-incremental-search-backward
 bindkey -e
 export LC_ALL=en_US.UTF-8
 
+# search in history based on what is type
+bindkey '\e[A' history-beginning-search-backward
+bindkey '\e[B' history-beginning-search-forward
+
 # previous/next word with alt + arrow
 bindkey '^[[1;3C' forward-word
 bindkey '^[[1;3D' backward-word
@@ -92,7 +96,6 @@ precmd ()
     else
         RPROMPT=""
     fi
-    RPROMPT="$RPROMPT"
     PROMPT="%B%{$fg[green]%}%n@%m%{$NORMAL%}%B:%{$fg[blue]%}%~%{$NORMAL%}
 %B%{$COLOR3%}> %{$NORMAL%}%b"
 }
