@@ -56,6 +56,8 @@ GROUP=`/usr/bin/id -gn $user`
 export GROUP
 MAIL="$USER@student.42.fr"
 export MAIL
+LIB="$HOME/libft"
+export LIB
 
 # Definition des couleurs
 if [ -f ~/.ls_colors ]; then
