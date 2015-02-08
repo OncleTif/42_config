@@ -42,8 +42,10 @@ fi
 # Correction de la touche Delete
 bindkey "\e[3~"   delete-char
 
-# Autocompletion de type menu
+# Autocompletion amelioree
 autoload -U compinit && compinit
+
+# Autocompletion de type menu
 zstyle ':completion:*' menu select
 
 # Couleur prompt
