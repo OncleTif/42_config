@@ -154,8 +154,20 @@ if has("autocmd")
 
     augroup END " }
 
+    " c gates {{{
+    function! s:insert_c_gates()
+        let gatename = substitute(toupper(expand("%:t")), "\\.", "_", "g")
+        let cName = substitute(expand("%:t"), ".h", "", "")
+        execute "normal! i#ifndef " . gatename
+        execute "normal! o# define " . gatename
+        execute	"normal! o"
+        execute "normal! Go#endif /* " . gatename . " */"
+        normal! kk
+    endfunction
+    " }}}
+
     " c++ gates {{{
-    function! s:insert_gates()
+    function! s:insert_cpp_gates()
         let gatename = substitute(toupper(expand("%:t")), "\\.", "_", "g")
         let cName = substitute(expand("%:t"), ".hpp", "", "")
         execute "normal! i#ifndef " . gatename
@@ -175,9 +187,13 @@ if has("autocmd")
         execute "normal! Go#endif /* " . gatename . " */"
         normal! kk
     endfunction
+    " }}}
+
+    " gates autocmd {{{
     augroup gates
         autocmd!
-        autocmd BufNewFile *.{h,hpp} call <SID>insert_gates()
+        autocmd BufNewFile *.{h} call <SID>insert_c_gates()
+        autocmd BufNewFile *.{hpp} call <SID>insert_cpp_gates()
     augroup END
     " }}}
 
@@ -296,6 +312,7 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTree
 nnoremap <leader>w :wa<cr>
 nnoremap <leader>a :wqa<cr>
 nnoremap <leader>! :qa!<cr>
+nnoremap <leader>t :tabedit<space>
 nnoremap <leader>ev :vs $MYVIMRC<cr>
 nnoremap <leader><leader> :!
 " }}}

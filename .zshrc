@@ -1,5 +1,5 @@
 # Definition du PATH
-PATH=$HOME/scripts:$HOME/usr/bin:$HOME/usr/local/bin:$HOME/.brew/bin:$HOME/mamp/mysql/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/usr/texbin
+PATH=$HOME/scripts:$HOME/.brew/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/usr/texbin
 export PATH
 
 # Import de config perso
@@ -48,6 +48,9 @@ zstyle ':completion:*' menu select
 
 # Couleur prompt
 autoload -U colors && colors
+
+# fucking mac and their /Volume/<hdd_name>
+cd `echo "$PWD" | sed "s:/Volumes/Data::"`
 
 # Definition des variables
 USER=`/usr/bin/whoami`
