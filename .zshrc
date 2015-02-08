@@ -83,7 +83,7 @@ precmd ()
     ISGIT=$(git status 2> /dev/null)
     if [ -n "$ISGIT" ]
     then
-        STATUS=$(echo "$ISGIT" | grep "modified:\|renamed:\|new file:\|deleted:")
+        STATUS=$(echo "$ISGIT" | grep "modified:\|renamed:\|new file:\|deleted:" | grep -v ".vim/bundle")
         BRANCH=$(git branch | cut -d ' ' -f 2 | tr -d '\n')
         if [ -n "$STATUS" ]
         then
