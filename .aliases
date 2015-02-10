@@ -18,6 +18,7 @@ alias gpl="git pull"
 alias gps="git push"
 alias gm="git merge"
 alias gu="git add -u"
+alias gusm="git submodule foreach git pull"
 
 # Definition des alias de ls
 alias l="ls"
