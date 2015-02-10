@@ -18,10 +18,6 @@ export LC_ALL=en_US.UTF-8
 bindkey '\e[A' history-beginning-search-backward
 bindkey '\e[B' history-beginning-search-forward
 
-# previous/next word with alt + arrow
-bindkey '^[[1;3C' forward-word
-bindkey '^[[1;3D' backward-word
-
 # previous/next word with ctrl + arrow
 bindkey '^[[1;5C' forward-word
 bindkey '^[[1;5D' backward-word
@@ -38,8 +34,10 @@ fi
 # Correction de la touche Delete
 bindkey "\e[3~"   delete-char
 
-# Autocompletion de type menu
+# Autocompletion amelioree
 autoload -U compinit && compinit
+
+# Autocompletion de type menu
 zstyle ':completion:*' menu select
 
 # Couleur prompt
@@ -72,7 +70,7 @@ precmd ()
     ISGIT=$(git status 2> /dev/null)
     if [ -n "$ISGIT" ]
     then
-        STATUS=$(echo "$ISGIT" | grep "modified:\|renamed:\|new file:\|deleted:")
+        STATUS=$(echo "$ISGIT" | grep "modified:\|renamed:\|new file:\|deleted:" | grep -v ".vim/bundle")
         BRANCH=$(git branch | cut -d ' ' -f 2 | tr -d '\n')
         if [ -n "$STATUS" ]
         then
