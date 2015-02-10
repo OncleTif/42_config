@@ -3,7 +3,7 @@ Git submodule
 
 Add git submodule
 -----------------
-    cgit submodule add <depot_url> <path_to_dir>
+    git submodule add <depot_url> <path_to_dir>
 
 Init submodule
 --------------
