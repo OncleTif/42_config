@@ -1,10 +1,14 @@
-== Git submodule ==
+Git submodule
+=============
 
-=== Add git submodule ===
+Add git submodule
+-----------------
  git submodule add <depot_url> <path_to_dir>
 
-=== Init submodule ===
+Init submodule
+--------------
  git submodule init
 
-=== Update submodule ===
+Update submodule
+----------------
  git submodule update
