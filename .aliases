@@ -30,3 +30,6 @@ alias auteur="echo 'mdelage' > auteur"
 alias clean="find . -name '*~' -execdir rm {} \;"
 alias modsh="vim ~/dotfiles/.zshrc"
 alias purgevim="rf -f ~/.vim/tmp/*.swp ~/.vim/tmp/.*.swp"
+
+# Laravel aliases
+alias artisan="php artisan"
