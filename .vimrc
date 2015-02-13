@@ -137,15 +137,16 @@ if has("autocmd")
 
         " FileType {{{
         " http://tedlogan.com/techblog3.html
-        autocmd FileType sh setlocal ts=4 sts=4 sw=4 noet ai " sh
-        autocmd FileType c,cpp setlocal ts=4 sts=4 sw=4 noet ai " c
-        autocmd FileType make setlocal ts=4 sts=4 sw=4 noet ai " Makefile
-        autocmd FileType vim setlocal ts=2 sts=2 sw=2 noet ai " Vim
-        autocmd FileType text setlocal ts=2 sts=2 sw=2 noet ai " Text
-        autocmd FileType markdown setlocal ts=4 sts=4 sw=4 noet ai " Markdown
-        autocmd FileType html setlocal ts=2 sts=2 sw=2 noet ai " (x)HTML
-        autocmd FileType php,java setlocal ts=2 sts=2 sw=2 noet ai nocindent " PHP & Java
-        autocmd FileType javascript setlocal ts=2 sts=2 sw=2 noet ai nocindent " JavaScript
+        autocmd FileType sh setlocal ts=4 sts=4 sw=4 et ai " sh
+        autocmd FileType c,cpp setlocal ts=4 sts=4 sw=4 et ai " c
+        autocmd FileType make setlocal ts=4 sts=4 sw=4 et ai " Makefile
+        autocmd FileType vim setlocal ts=2 sts=2 sw=2 et ai " Vim
+        autocmd FileType text setlocal ts=2 sts=2 sw=2 et ai " Text
+        autocmd FileType markdown setlocal ts=4 sts=4 sw=4 et ai " Markdown
+        autocmd FileType html setlocal ts=2 sts=2 sw=2 et ai " (x)HTML
+        autocmd FileType php,java setlocal ts=2 sts=2 sw=2 et ai nocindent " PHP & Java
+        autocmd FileType javascript setlocal ts=2 sts=2 sw=2 et ai nocindent " JavaScript
+				autocmd FileType python setlocal ts=4 sts=4 sw=4 et ai " Python
         autocmd BufNewFile,BufRead *.h set ft=c
         autocmd BufNewFile,BufRead *.json set ft=javascript
         autocmd BufNewFile,BufRead *.webapp set ft=javascript
@@ -314,6 +315,7 @@ nnoremap <leader>a :wqa<cr>
 nnoremap <leader>! :qa!<cr>
 nnoremap <leader>t :tabedit<space>
 nnoremap <leader>ev :vs $MYVIMRC<cr>
+nnoremap <leader>n :NERDTreeFocus<cr>
 nnoremap <leader><tab> gt
 nnoremap <leader><leader> :!
 " }}}
