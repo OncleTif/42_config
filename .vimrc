@@ -306,7 +306,7 @@ inoremap <c-u> <esc>viwUi<esc>`>
 " inoremap { {}<left>
 
 " NerdTree
-nnoremap <C-n> :NERDTreeToggle<CR>
+nnoremap <C-n> :NERDTreeTabsToggle<CR>
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 
 " Some shortcut with leader {{{
@@ -315,7 +315,7 @@ nnoremap <leader>a :wqa<cr>
 nnoremap <leader>! :qa!<cr>
 nnoremap <leader>t :tabedit<space>
 nnoremap <leader>ev :vs $MYVIMRC<cr>
-nnoremap <leader>n :NERDTreeFocus<cr>
+nnoremap <leader>n :NERDTreeFocusToggle<cr>
 nnoremap <leader><tab> gt
 nnoremap <leader><leader> :!
 " }}}
