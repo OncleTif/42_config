@@ -82,6 +82,9 @@ set tw=0 wm=0
 
 "set autowrite                   " Auto-save before :next, :make, etc.
 
+" set the ignore file for ctrlp plugin
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip     " MacOSX/Linux
+
 " Highlighting spaces and tabulations {{{
 " (\zs & \ze == start and end of match, \s == any space)
 match ErrorMsg '\s\+$'           " Match trailing whitespace
