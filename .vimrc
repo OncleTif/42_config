@@ -41,6 +41,17 @@ augroup END " }
 
 " ruler with line number
 set number
+" toggle between relative and obsolute line number {{{
+function! NumberToggle()
+  if(&relativenumber == 1)
+    set number
+  else
+    set relativenumber
+  endif
+endfunc
+
+nnoremap <leader>b :call NumberToggle()<cr>
+"}}}
 
 " Visual settings
 set t_Co=256                     " force vim to use 256 colors
@@ -98,6 +109,7 @@ set sidescrolloff=5
 " search
 set incsearch                    " incremental searching
 set smartcase                    " if no caps in patern, not case sensitive
+"set ignorecase                   " needed for smartcase to work
 " if the terminal has colors
 " switch syntax highlighting on
 " & highlight last research
