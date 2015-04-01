@@ -3,7 +3,7 @@
 	url = https://github.com/octol/vim-cpp-enhanced-highlight.git
 [submodule "vim/bundle/ccimpl"]
 	path = vim/bundle/ccimpl
-	url = https://github.com/vim-scripts/ccimplvim.git
+	url = https://github.com/vim-scripts/ccimpl.vim.git
 [submodule "vim/bundle/theme-kalahari"]
 	path = vim/bundle/theme-kalahari
 	url = https://github.com/fabi1cazenave/kalaharivim.git
@@ -36,4 +36,4 @@
 	url = https://github.com/jistr/vim-nerdtree-tabs.git
 [submodule "vim/bundle/ctrlp"]
 	path = vim/bundle/ctrlp
-	url = https://github.com/kien/ctrlpvim
+	url = https://github.com/kien/ctrlp.vim
