@@ -6,7 +6,7 @@
 	url = https://github.com/vim-scripts/ccimpl.vim.git
 [submodule "vim/bundle/theme-kalahari"]
 	path = vim/bundle/theme-kalahari
-	url = https://github.com/fabi1cazenave/kalaharivim.git
+	url = https://github.com/fabi1cazenave/kalahari.vim.git
 [submodule "vim/bundle/syntastic"]
 	path = vim/bundle/syntastic
 	url = https://github.com/vim-scripts/Syntastic.git
