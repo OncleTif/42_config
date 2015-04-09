@@ -12,7 +12,10 @@ function do_ln()
 do_ln aliases
 do_ln gitconfig
 do_ln gitignore_global
+do_ln irssi
 do_ln ls_colors
+do_ln tmux
+do_ln tmux.config
 do_ln vim
 do_ln vimrc
 do_ln zsh
