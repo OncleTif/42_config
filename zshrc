@@ -1,17 +1,7 @@
 # Definition du PATH
-<<<<<<< HEAD
 PATH=$HOME/scripts:$HOME/.brew/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/usr/texbin
 export PATH
 
-# Import de config perso
-fpath="/nfs/zfs-student-3/users/2013/mdelage/dotfiles/.zsh /usr/share/zsh/site-functions /usr/share/zsh/5.0.2/functions"
-FPATH=`echo $fpath | tr ' ' ':'`
-
-=======
-PATH=$HOME/.bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/usr/texbin
-export PATH
-
->>>>>>> linux
 # Configuration de l'historique
 HISTFILE=~/.zshrc_history
 SAVEHIST=5000
@@ -53,12 +43,9 @@ zstyle ':completion:*' menu select
 # Couleur prompt
 autoload -U colors && colors
 
-<<<<<<< HEAD
 # fucking mac and their /Volume/<hdd_name>
 cd `echo "$PWD" | sed "s:/Volumes/Data::"`
 
-=======
->>>>>>> linux
 # Definition des variables
 USER=`/usr/bin/whoami`
 export USER
@@ -66,11 +53,8 @@ GROUP=`/usr/bin/id -gn $user`
 export GROUP
 MAIL="$USER@student.42.fr"
 export MAIL
-<<<<<<< HEAD
 LIB="$HOME/libft"
 export LIB
-=======
->>>>>>> linux
 
 # Definition des couleurs
 if [ -f ~/.ls_colors ]; then

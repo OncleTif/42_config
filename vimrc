@@ -141,7 +141,6 @@ if has("autocmd")
 
         " FileType {{{
         " http://tedlogan.com/techblog3.html
-<<<<<<< HEAD
         autocmd FileType sh setlocal ts=4 sts=4 sw=4 noet ai " sh
         autocmd FileType c,cpp setlocal ts=4 sts=4 sw=4 noet ai " c
         autocmd FileType make setlocal ts=4 sts=4 sw=4 noet ai " Makefile
@@ -151,18 +150,7 @@ if has("autocmd")
         autocmd FileType html setlocal ts=2 sts=2 sw=2 noet ai " (x)HTML
         autocmd FileType php,java setlocal ts=2 sts=2 sw=2 noet ai nocindent " PHP & Java
         autocmd FileType javascript setlocal ts=2 sts=2 sw=2 noet ai nocindent " JavaScript
-=======
-        autocmd FileType sh setlocal ts=4 sts=4 sw=4 et ai " sh
-        autocmd FileType c,cpp setlocal ts=4 sts=4 sw=4 et ai " c
-        autocmd FileType make setlocal ts=4 sts=4 sw=4 et ai " Makefile
-        autocmd FileType vim setlocal ts=2 sts=2 sw=2 et ai " Vim
-        autocmd FileType text setlocal ts=2 sts=2 sw=2 et ai " Text
-        autocmd FileType markdown setlocal ts=4 sts=4 sw=4 et ai " Markdown
-        autocmd FileType html setlocal ts=2 sts=2 sw=2 et ai " (x)HTML
-        autocmd FileType php,java setlocal ts=2 sts=2 sw=2 et ai nocindent " PHP & Java
-        autocmd FileType javascript setlocal ts=2 sts=2 sw=2 et ai nocindent " JavaScript
-				autocmd FileType python setlocal ts=4 sts=4 sw=4 et ai " Python
->>>>>>> linux
+        autocmd FileType python setlocal ts=4 sts=4 sw=4 et ai " Python
         autocmd BufNewFile,BufRead *.h set ft=c
         autocmd BufNewFile,BufRead *.json set ft=javascript
         autocmd BufNewFile,BufRead *.webapp set ft=javascript
@@ -170,49 +158,6 @@ if has("autocmd")
         " }}}
 
     augroup END " }
-
-    " c gates {{{
-    function! s:insert_c_gates()
-        let gatename = substitute(toupper(expand("%:t")), "\\.", "_", "g")
-        let cName = substitute(expand("%:t"), ".h", "", "")
-        execute "normal! i#ifndef " . gatename
-        execute "normal! o# define " . gatename
-        execute	"normal! o"
-        execute "normal! Go#endif /* " . gatename . " */"
-        normal! kk
-    endfunction
-    " }}}
-
-    " c++ gates {{{
-    function! s:insert_cpp_gates()
-        let gatename = substitute(toupper(expand("%:t")), "\\.", "_", "g")
-        let cName = substitute(expand("%:t"), ".hpp", "", "")
-        execute "normal! i#ifndef " . gatename
-        execute "normal! o# define " . gatename
-        execute	"normal! o"
-        execute	"normal! oclass " . cName
-        execute	"normal! o{"
-        execute	"normal! opublic:"
-        execute "normal! o" . cName . "( void );"
-        execute "normal! o" . cName . "(" . cName." const & src );"
-        execute "normal! o~" . cName . "( void );"
-        execute "normal! o" . cName . " &	operator=( " . cName . " const & rhs );"
-        execute	"normal! o"
-        execute	"normal! oprivate:"
-        execute	"normal! o};"
-        execute	"normal! o"
-        execute "normal! Go#endif /* " . gatename . " */"
-        normal! kk
-    endfunction
-    " }}}
-
-    " gates autocmd {{{
-    augroup gates
-        autocmd!
-        autocmd BufNewFile *.{h} call <SID>insert_c_gates()
-        autocmd BufNewFile *.{hpp} call <SID>insert_cpp_gates()
-    augroup END
-    " }}}
 
     " Suppression of space at end of line {{{
     augroup delete_space
@@ -332,10 +277,7 @@ nnoremap <leader>! :qa!<cr>
 nnoremap <leader>t :tabedit<space>
 nnoremap <leader>ev :vs $MYVIMRC<cr>
 nnoremap <leader>n :NERDTreeFocusToggle<cr>
-<<<<<<< HEAD
-=======
 nnoremap <leader>b :set relativenumber !<cr>
->>>>>>> linux
 nnoremap <leader><tab> gt
 nnoremap <leader><leader> :!
 " }}}
