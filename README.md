@@ -8,4 +8,4 @@ backup configuration used in scholl
     ./install
 
 ## update 14-04-2015
-I screw up pretty big today on the master branch today so you will need to delete $HOME/.dotfile and reclone it. My bad
+I screw up pretty big today on the master branch today so you will need to delete $HOME/.dotfiles and reclone it. My bad
