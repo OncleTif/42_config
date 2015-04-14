@@ -1,0 +1,13 @@
+#session
+
+new -s main -n irssi
+splitw -h -t 0 irssi
+resizep -t 0 -x 20
+respawnp -t 0 -k '/bin/cat ~/.irssi/nicklistfifo'
+selectp -t 1
+
+#new  -s main -n irssi irssi
+#neww -n foo/bar foo
+#splitw -v -p 50 -t 0 bar
+#selectw -t 1
+#selectp -t 0

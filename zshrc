@@ -1,4 +1,5 @@
 # Definition du PATH
+<<<<<<< HEAD
 PATH=$HOME/scripts:$HOME/.brew/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/usr/texbin
 export PATH
 
@@ -6,6 +7,11 @@ export PATH
 fpath="/nfs/zfs-student-3/users/2013/mdelage/dotfiles/.zsh /usr/share/zsh/site-functions /usr/share/zsh/5.0.2/functions"
 FPATH=`echo $fpath | tr ' ' ':'`
 
+=======
+PATH=$HOME/.bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/usr/texbin
+export PATH
+
+>>>>>>> linux
 # Configuration de l'historique
 HISTFILE=~/.zshrc_history
 SAVEHIST=5000
@@ -47,9 +53,12 @@ zstyle ':completion:*' menu select
 # Couleur prompt
 autoload -U colors && colors
 
+<<<<<<< HEAD
 # fucking mac and their /Volume/<hdd_name>
 cd `echo "$PWD" | sed "s:/Volumes/Data::"`
 
+=======
+>>>>>>> linux
 # Definition des variables
 USER=`/usr/bin/whoami`
 export USER
@@ -57,8 +66,11 @@ GROUP=`/usr/bin/id -gn $user`
 export GROUP
 MAIL="$USER@student.42.fr"
 export MAIL
+<<<<<<< HEAD
 LIB="$HOME/libft"
 export LIB
+=======
+>>>>>>> linux
 
 # Definition des couleurs
 if [ -f ~/.ls_colors ]; then
@@ -76,12 +88,10 @@ precmd ()
     else
         COLOR3="%{$fg[red]%}"
     fi
-    PROMPT="%n@%B%m%b:%~
-%{$COLOR3%}> %{$NORMAL%}"
     ISGIT=$(git status 2> /dev/null)
     if [ -n "$ISGIT" ]
     then
-        STATUS=$(echo "$ISGIT" | grep "modified:\|renamed:\|new file:\|deleted:" | grep -v ".vim/bundle")
+        STATUS=$(echo "$ISGIT" | grep "modified:\|renamed:\|new file:\|deleted:" | grep -v ".vim/bundle\|untracked")
         BRANCH=$(git branch | cut -d ' ' -f 2 | tr -d '\n')
         if [ -n "$STATUS" ]
         then
@@ -101,10 +111,12 @@ precmd ()
                 COLOR="%{$fg[green]%}"
             fi
         fi
-        RPROMPT="%{$COLOR%}($BRANCH)%{$NORMAL%} "
+        RPROMPT="%{$COLOR%}($BRANCH)%{$NORMAL%}"
     else
         RPROMPT=""
     fi
+    PROMPT="%B%{$fg[green]%}%n@%m%{$NORMAL%}%B:%{$fg[blue]%}%~%{$NORMAL%}
+%B%{$COLOR3%}> %{$NORMAL%}%b"
 }
 
 # Load global aliases
@@ -124,39 +136,4 @@ man()
         LESS_TERMCAP_ue=$(printf "\e[0m") \
         LESS_TERMCAP_us=$(printf "\e[1;32m") \
         man "$@"
-}
-
-# Norminette inteligente
-norme()
-{
-    norminette **/*.c **/*.h
-}
-
-html()
-{
-    echo "<html>" > $1
-    echo "\t<head>" >> $1
-    echo "\t</head>" >> $1
-    echo "\t<body>" >> $1
-    echo "\t</body>" >> $1
-    echo "</html>" >> $1
-}
-
-sp()
-{
-    echo "<?php" >> $1
-    echo "" >> $1
-    echo "?>" >> $1
-}
-
-sc()
-{
-    if [ "$1" = "sh" ]
-    then
-        echo "#!/bin/sh" >> $2
-    elif [ "$1" = "php" ]
-    then
-        echo "#!/usr/bin/php" >> $2
-        sp $2
-    fi
 }

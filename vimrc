@@ -71,6 +71,9 @@ set tw=0 wm=0
 
 "set autowrite                   " Auto-save before :next, :make, etc.
 
+" set the ignore file for ctrlp plugin
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip     " MacOSX/Linux
+
 " Highlighting spaces and tabulations {{{
 " (\zs & \ze == start and end of match, \s == any space)
 match ErrorMsg '\s\+$'           " Match trailing whitespace
@@ -98,6 +101,7 @@ set sidescrolloff=5
 " search
 set incsearch                    " incremental searching
 set smartcase                    " if no caps in patern, not case sensitive
+"set ignorecase                   " needed for smartcase to work
 " if the terminal has colors
 " switch syntax highlighting on
 " & highlight last research
@@ -137,6 +141,7 @@ if has("autocmd")
 
         " FileType {{{
         " http://tedlogan.com/techblog3.html
+<<<<<<< HEAD
         autocmd FileType sh setlocal ts=4 sts=4 sw=4 noet ai " sh
         autocmd FileType c,cpp setlocal ts=4 sts=4 sw=4 noet ai " c
         autocmd FileType make setlocal ts=4 sts=4 sw=4 noet ai " Makefile
@@ -146,6 +151,18 @@ if has("autocmd")
         autocmd FileType html setlocal ts=2 sts=2 sw=2 noet ai " (x)HTML
         autocmd FileType php,java setlocal ts=2 sts=2 sw=2 noet ai nocindent " PHP & Java
         autocmd FileType javascript setlocal ts=2 sts=2 sw=2 noet ai nocindent " JavaScript
+=======
+        autocmd FileType sh setlocal ts=4 sts=4 sw=4 et ai " sh
+        autocmd FileType c,cpp setlocal ts=4 sts=4 sw=4 et ai " c
+        autocmd FileType make setlocal ts=4 sts=4 sw=4 et ai " Makefile
+        autocmd FileType vim setlocal ts=2 sts=2 sw=2 et ai " Vim
+        autocmd FileType text setlocal ts=2 sts=2 sw=2 et ai " Text
+        autocmd FileType markdown setlocal ts=4 sts=4 sw=4 et ai " Markdown
+        autocmd FileType html setlocal ts=2 sts=2 sw=2 et ai " (x)HTML
+        autocmd FileType php,java setlocal ts=2 sts=2 sw=2 et ai nocindent " PHP & Java
+        autocmd FileType javascript setlocal ts=2 sts=2 sw=2 et ai nocindent " JavaScript
+				autocmd FileType python setlocal ts=4 sts=4 sw=4 et ai " Python
+>>>>>>> linux
         autocmd BufNewFile,BufRead *.h set ft=c
         autocmd BufNewFile,BufRead *.json set ft=javascript
         autocmd BufNewFile,BufRead *.webapp set ft=javascript
@@ -315,6 +332,10 @@ nnoremap <leader>! :qa!<cr>
 nnoremap <leader>t :tabedit<space>
 nnoremap <leader>ev :vs $MYVIMRC<cr>
 nnoremap <leader>n :NERDTreeFocusToggle<cr>
+<<<<<<< HEAD
+=======
+nnoremap <leader>b :set relativenumber !<cr>
+>>>>>>> linux
 nnoremap <leader><tab> gt
 nnoremap <leader><leader> :!
 " }}}
@@ -327,4 +348,14 @@ let g:syntastic_style_error_symbol='>'
 let g:syntastic_warning_symbol='⚠'
 let g:syntastic_style_warning_symbol='>'
 let g:syntastic_c_include_dirs=[ '.', './includes', '../includes', './libft/includes' , '../libft/includes' ]
+" }}}
+
+" Tmux compatibility {{{
+if &term =~ '^screen'
+  " tmux will send xterm-style keys when its xterm-keys option is on
+  execute "set <xUp>=\e[1;*A"
+  execute "set <xDown>=\e[1;*B"
+  execute "set <xRight>=\e[1;*C"
+  execute "set <xLeft>=\e[1;*D"
+endif
 " }}}

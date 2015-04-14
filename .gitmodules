@@ -1,36 +1,52 @@
 [submodule "vim/bundle/syntax"]
-	path = vim/bundle/syntax
-	url = https://github.com/octol/vim-cpp-enhanced-highlight.git
+    path = vim/bundle/syntax
+    url = https://github.com/octol/vim-cpp-enhanced-highlight.git
+    ignore = dirty
 [submodule "vim/bundle/ccimpl"]
-	path = vim/bundle/ccimpl
-	url = https://github.com/vim-scripts/ccimpl.vim.git
+    path = vim/bundle/ccimpl
+    url = https://github.com/vim-scripts/ccimpl.vim.git
+    ignore = dirty
 [submodule "vim/bundle/theme-kalahari"]
-	path = vim/bundle/theme-kalahari
-	url = https://github.com/fabi1cazenave/kalahari.vim.git
+    path = vim/bundle/theme-kalahari
+    url = https://github.com/fabi1cazenave/kalahari.vim.git
+    ignore = dirty
 [submodule "vim/bundle/syntastic"]
-	path = vim/bundle/syntastic
-	url = https://github.com/vim-scripts/Syntastic.git
+    path = vim/bundle/syntastic
+    url = https://github.com/vim-scripts/Syntastic.git
+    ignore = dirty
 [submodule "vim/bundle/fugitive"]
-	path = vim/bundle/fugitive
-	url = https://github.com/tpope/vim-fugitive.git
+    path = vim/bundle/fugitive
+    url = https://github.com/tpope/vim-fugitive.git
+    ignore = dirty
 [submodule "vim/bundle/python_match"]
-	path = vim/bundle/python_match
-	url = https://github.com/yegle/python_match.git
+    path = vim/bundle/python_match
+    url = https://github.com/yegle/python_match.git
+    ignore = dirty
 [submodule "vim/bundle/repeat"]
-	path = vim/bundle/repeat
-	url = https://github.com/tpope/vim-repeat.git
+    path = vim/bundle/repeat
+    url = https://github.com/tpope/vim-repeat.git
+    ignore = dirty
 [submodule "vim/bundle/snipmate"]
-	path = vim/bundle/snipmate
-	url = https://github.com/vim-scripts/snipMate.git
+    path = vim/bundle/snipmate
+    url = https://github.com/vim-scripts/snipMate.git
+    ignore = dirty
 [submodule "vim/bundle/surround"]
-	path = vim/bundle/surround
-	url = https://github.com/tpope/vim-surround.git
+    path = vim/bundle/surround
+    url = https://github.com/tpope/vim-surround.git
+    ignore = dirty
 [submodule "vim/bundle/OmniCppComplete"]
-	path = vim/bundle/OmniCppComplete
-	url = https://github.com/vim-scripts/OmniCppComplete.git
+    path = vim/bundle/OmniCppComplete
+    url = https://github.com/vim-scripts/OmniCppComplete.git
+    ignore = dirty
 [submodule "vim/bundle/nerdtree"]
-	path = vim/bundle/nerdtree
-	url = https://github.com/scrooloose/nerdtree
+    path = vim/bundle/nerdtree
+    url = https://github.com/scrooloose/nerdtree
+    ignore = dirty
 [submodule "vim/bundle/nerdtreetabs"]
-	path = vim/bundle/nerdtreetabs
-	url = https://github.com/jistr/vim-nerdtree-tabs.git
+    path = vim/bundle/nerdtreetabs
+    url = https://github.com/jistr/vim-nerdtree-tabs.git
+    ignore = dirty
+[submodule "vim/bundle/ctrlp"]
+    path = vim/bundle/ctrlp
+    url = https://github.com/kien/ctrlp.vim
+    ignore = dirty
