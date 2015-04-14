@@ -70,7 +70,7 @@ precmd ()
     ISGIT=$(git status 2> /dev/null)
     if [ -n "$ISGIT" ]
     then
-        STATUS=$(echo "$ISGIT" | grep "modified:\|renamed:\|new file:\|deleted:" | grep -v ".vim/bundle")
+        STATUS=$(echo "$ISGIT" | grep "modified:\|renamed:\|new file:\|deleted:" | grep -v ".vim/bundle\|untracked")
         BRANCH=$(git branch | cut -d ' ' -f 2 | tr -d '\n')
         if [ -n "$STATUS" ]
         then
@@ -79,7 +79,7 @@ precmd ()
             REMOTE_EXIST=$(git branch -a | grep remotes/origin/$BRANCH)
             if [ -n "$REMOTE_EXIST" ]
             then
-                REMOTE=$(git diff origin/$BRANCH)
+                REMOTE=$(git diff origin/$BRANCH | grep -v "Subproject\|vim/bundle\|@@ -1 +1 @@")
                 if [ -n "$REMOTE" ]
                 then
                     COLOR="%{$fg[yellow]%}"
