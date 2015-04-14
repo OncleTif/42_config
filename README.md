@@ -1,11 +1,13 @@
 # 42_config
-backup configuration used in scholl
+Backup configuration used in school
 
-## install
+## Install
     cd $HOME
     git clone https://github.com/geam/42_config .dotfiles
     cd .dotfiles
-    ./install
+    ./install.sh
 
-## update 14-04-2015
+The install script support some options, run `./install.sh -h` to know more
+
+## Update 14-04-2015
 I screw up pretty big today on the master branch so you will need to delete $HOME/.dotfiles and reclone it. My bad
