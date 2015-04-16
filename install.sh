@@ -29,8 +29,8 @@ function usage()
 function do_ln()
 {
     for i in ${LN[@]}; do
-        if [[ -f "${SRC}/${i}" ]]; then
-            if [[ -f "${DEST}/.${i}" ]]; then
+        if [[ -f "${SRC}/${i}" ]] || [[ -d "${SRC}/${i}" ]]; then
+            if [[ -f "${DEST}/.${i}" ]] || [[ -d "${DEST}/.${i}" ]]; then
                 mv "${DEST}/.${i}" "${DEST}/.${i}.old"
             fi
             ln -s "${SRC}/${i}" "${DEST}/.${i}"
@@ -45,7 +45,7 @@ function rm_ln()
     for i in ${FILES[@]}; do
         if [[ -L "${DEST}/.${i}" ]]; then
             rm "${DEST}/.${i}"
-            if [[ -f "${DEST}/.${i}.old" ]]; then
+            if [[ -f "${DEST}/.${i}.old" ]] || [[ -d "${DEST}/.${i}.old" ]]; then
                 mv "${DEST}/.${i}.old" "${DEST}/.${i}"
             fi
         fi
