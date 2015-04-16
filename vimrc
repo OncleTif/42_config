@@ -41,17 +41,6 @@ augroup END " }
 
 " ruler with line number
 set number
-" toggle between relative and obsolute line number {{{
-function! NumberToggle()
-  if(&relativenumber == 1)
-    set number
-  else
-    set relativenumber
-  endif
-endfunc
-
-nnoremap <leader>b :call NumberToggle()<cr>
-"}}}
 
 " Visual settings
 set t_Co=256                     " force vim to use 256 colors
@@ -288,6 +277,7 @@ nnoremap <leader>! :qa!<cr>
 nnoremap <leader>t :tabedit<space>
 nnoremap <leader>ev :vs $MYVIMRC<cr>
 nnoremap <leader>n :NERDTreeFocusToggle<cr>
+nnoremap <leader>b :set relativenumber !<cr>
 nnoremap <leader><tab> gt
 nnoremap <leader><leader> :!
 " }}}
