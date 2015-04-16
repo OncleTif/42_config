@@ -170,49 +170,6 @@ if has("autocmd")
 
     augroup END " }
 
-    " c gates {{{
-    function! s:insert_c_gates()
-        let gatename = substitute(toupper(expand("%:t")), "\\.", "_", "g")
-        let cName = substitute(expand("%:t"), ".h", "", "")
-        execute "normal! i#ifndef " . gatename
-        execute "normal! o# define " . gatename
-        execute	"normal! o"
-        execute "normal! Go#endif /* " . gatename . " */"
-        normal! kk
-    endfunction
-    " }}}
-
-    " c++ gates {{{
-    function! s:insert_cpp_gates()
-        let gatename = substitute(toupper(expand("%:t")), "\\.", "_", "g")
-        let cName = substitute(expand("%:t"), ".hpp", "", "")
-        execute "normal! i#ifndef " . gatename
-        execute "normal! o# define " . gatename
-        execute	"normal! o"
-        execute	"normal! oclass " . cName
-        execute	"normal! o{"
-        execute	"normal! opublic:"
-        execute "normal! o" . cName . "( void );"
-        execute "normal! o" . cName . "(" . cName." const & src );"
-        execute "normal! o~" . cName . "( void );"
-        execute "normal! o" . cName . " &	operator=( " . cName . " const & rhs );"
-        execute	"normal! o"
-        execute	"normal! oprivate:"
-        execute	"normal! o};"
-        execute	"normal! o"
-        execute "normal! Go#endif /* " . gatename . " */"
-        normal! kk
-    endfunction
-    " }}}
-
-    " gates autocmd {{{
-    augroup gates
-        autocmd!
-        autocmd BufNewFile *.{h} call <SID>insert_c_gates()
-        autocmd BufNewFile *.{hpp} call <SID>insert_cpp_gates()
-    augroup END
-    " }}}
-
     " Suppression of space at end of line {{{
     augroup delete_space
         autocmd!
