@@ -22,6 +22,8 @@ function usage()
     echo -e "\t-f|--files file1,file2 : give a list a files comma separated"
     echo -e "\t-l|--list : list all available file on which you can crete symlink"
     echo -e "\t-h|--help : display this help"
+	echo -e "\t-g|--geam : my personnal config /!\\ DO NOT USE IT"
+	echo -e "\t--g42 : my personnal config for 42 /!\\ DO NOT USE IT"
     exit 0
 }
 
@@ -125,9 +127,15 @@ git submodule update
 
 if [[ -n "${G42}" ]]; then
     cd $HOME
-    git clone git@github.com:Geam/libft.git libft
-    git clone git@github.com:Geam/scripts.git scripts
-    ln -s /nfs/sgoinfre
+	if [[ ! -d "$HOME/libft" ]]; then
+	    git clone git@github.com:Geam/libft.git libft
+	fi
+	if [[ ! -d "$HOME/scripts" ]]; then
+	    git clone git@github.com:Geam/scripts.git scripts
+	fi
+	if [[ ! -L "$HOME/sgoinfre" ]]; then
+	    ln -s /nfs/sgoinfre
+	fi
     brew update
     source $HOME/.zshrc
     brew install htop tig
