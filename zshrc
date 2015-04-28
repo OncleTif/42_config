@@ -34,6 +34,11 @@ fi
 # Correction de la touche Delete
 bindkey "\e[3~"   delete-char
 
+# add completion provied by bin installed via brew
+if [[ -d "$HOME/.brew/share/zsh/site-functions/" ]]; then
+    fpath=($HOME/.brew/share/zsh/site-functions/ $fpath)
+fi
+
 # Autocompletion amelioree
 autoload -U compinit && compinit
 
