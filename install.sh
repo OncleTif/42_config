@@ -84,6 +84,7 @@ while test $# -gt 0; do
 			;;
 		-c|--clean)
 			DELETE=true
+			unset DEFAULT
 			;;
 		-a|--available_files)
 			ls -l ${SRC}
