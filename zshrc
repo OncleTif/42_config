@@ -49,7 +49,7 @@ zstyle ':completion:*' menu select
 autoload -U colors && colors
 
 # fucking mac and their /Volume/<hdd_name>
-cd `echo "$PWD" | sed "s:/Volumes/Data::"`
+cd "`echo $PWD | sed 's:/Volumes/Data::'`"
 
 # Definition des variables
 USER=`/usr/bin/whoami`
