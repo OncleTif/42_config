@@ -58,6 +58,9 @@ set background=dark
 " theme
 colorscheme kalahari
 
+" rainbow
+let g:rainbow_active = 1
+
 " status line
 set laststatus=2                 " always display the status line
 set shortmess=atI                " short messages to avoid scrolling
@@ -255,18 +258,6 @@ runtime! ftplugin/man.vim
 " split screen below and right instead of vim natural
 set splitbelow
 set splitright
-
-" rebind increase
-nnoremap <C-c> <C-a>
-
-" Moving to beginning or end of line {{{
-nnoremap <C-a> <Home>
-nnoremap <C-e> <End>
-inoremap <C-a> <Home>
-inoremap <C-e> <End>
-vnoremap <C-a> <Home>
-vnoremap <C-e> <End>
-" }}}
 
 " Some shortcut for insert mode
 inoremap <Nul> <C-n>
