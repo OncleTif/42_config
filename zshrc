@@ -126,3 +126,14 @@ man()
         LESS_TERMCAP_us=$(printf "\e[1;32m") \
         man "$@"
 }
+
+# update symlink in case of zsf change
+if [[ ! -f $HOME/.old_home ]]
+then
+    echo $HOME > $HOME/.old_home
+fi
+OLD_HOME=$(cat $HOME/.old_home)
+if [[ "$OLD_HOME" != "$HOME" ]]; then
+    $HOME/.dotfiles/install.sh -c -l
+    echo $HOME > $HOME/.old_home
+fi
