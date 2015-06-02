@@ -128,12 +128,18 @@ man()
 }
 
 # update symlink in case of zsf change
-if [[ ! -f $HOME/.old_home ]]
-then
+if [[ ! -f $HOME/.old_home ]]; then
     echo $HOME > $HOME/.old_home
 fi
 OLD_HOME=$(cat $HOME/.old_home)
 if [[ "$OLD_HOME" != "$HOME" ]]; then
-    $HOME/.dotfiles/install.sh -c -l
     echo $HOME > $HOME/.old_home
+    if [[ `basename $HOME` = "mdelage" ]]; then
+        env GEAM=true $HOME/.dotfiles/install.sh -c -l
+    else
+        $HOME/.dotfiles/install.sh -c -l
+    fi
+    echo "+------------------------+"
+    echo "| /!\\ You've changed zsf |"
+    echo "+------------------------+"
 fi
