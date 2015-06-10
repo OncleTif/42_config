@@ -155,7 +155,7 @@ if has("autocmd")
         " http://tedlogan.com/techblog3.html
         autocmd FileType sh setlocal ts=4 sts=4 sw=4 et ai " sh
         autocmd FileType c,cpp setlocal ts=4 sts=4 sw=4 et ai " c
-        autocmd FileType make setlocal ts=4 sts=4 sw=4 et ai " Makefile
+        autocmd FileType make setlocal ts=4 sts=4 sw=4 noet ai " Makefile
         autocmd FileType vim setlocal ts=2 sts=2 sw=2 et ai " Vim
         autocmd FileType text setlocal ts=2 sts=2 sw=2 et ai " Text
         autocmd FileType markdown setlocal ts=4 sts=4 sw=4 et ai " Markdown
