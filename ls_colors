@@ -18,7 +18,7 @@
 #H     bold light grey; looks like bright white
 #x     default foreground or background
 
-DIRECTORY="ex"
+DIRECTORY="bx"
 SYMBLINK="gx"
 SOCKET="xx"
 PIPE="xx"

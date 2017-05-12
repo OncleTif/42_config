@@ -20,6 +20,7 @@ alias gps="git push"
 alias gm="git merge"
 alias gu="git add -u"
 alias gusm="git submodule foreach git pull"
+alias gitpush="git push origin;git push github"
 
 # Definition des alias de ls
 alias l="ls"
