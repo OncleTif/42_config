@@ -52,8 +52,10 @@ autoload -U colors && colors
 cd "`echo $PWD | sed 's:/Volumes/Data::'`"
 
 # Definition des variables
-USER=`/usr/bin/whoami`
-export USER
+if [ -z $USER]; then
+    USER=`/usr/bin/whoami`
+    export USER
+fi
 GROUP=`/usr/bin/id -gn $user`
 export GROUP
 MAIL="$USER@student.42.fr"
@@ -105,7 +107,7 @@ precmd ()
         RPROMPT=""
     fi
     PROMPT="%B%{$fg[green]%}%n@%m%{$NORMAL%}%B:%{$fg[blue]%}%~%{$NORMAL%}
-%B%{$COLOR3%}> %{$NORMAL%}%b"
+    %B%{$COLOR3%}> %{$NORMAL%}%b"
 }
 
 # Load global aliases
