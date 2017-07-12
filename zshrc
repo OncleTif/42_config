@@ -52,10 +52,8 @@ autoload -U colors && colors
 cd "`echo $PWD | sed 's:/Volumes/Data::'`"
 
 # Definition des variables
-if [ -z $USER]; then
-    USER=`/usr/bin/whoami`
+    USER="tmanet"
     export USER
-fi
 GROUP=`/usr/bin/id -gn $user`
 export GROUP
 MAIL="$USER@student.42.fr"
